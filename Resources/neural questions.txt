@@ -1,0 +1,63 @@
+
+Dataset Characteristics:
+I want to detect forest fires from Satellite Images. The dataset I chose is the dataset obtained from Landsat 8. The datasest description is like this:
+
+This dataset was created from all Landsat-8 images from South America in the year 2018. More than 31 thousand images were processed (15 TB of data), and approximately on half of them active fire pixels were found. The Landsat-8 sensor has 30 meters of spatial resolution (1 panchromatic band of 15m), 16 bits of radiometric resolution and 16 days of temporal resolution (revisit). The images in our dataset are in TIFF (geotiff) format with 10 bands (excluding the 15m panchromatic band). We cropped the original Landsat-8 scenes into image patches with 128 x 128 pixels by using a stride overlap of 64 pixels (vertical and horizontal). The masks are in binary format where True (1) represents fire and False (0) represents background and they were generated from the conditions set by Schroeder et al. (2016). 
+
+The way data is stored:
+1. The original images are stored in tiff format. I want to use rasterio libarary for reading the images.
+2. The images are in tiff format with 10 bands. I want 7,6,2 bands to be selected and used for input for the neural network.
+3. The target image is of the resolution 128*128. It is in binary format (with 1 and 0)
+
+I need a neural network with the following characteristics
+
+1. The original image is of the resolution 128 by 128. As mentioned only 7,6,2 bands has to be selected
+2. The target image which the neural network has to train on is also 128 by 128 but it is in binary format
+3. The neural network should train using this data. 
+4. A sample of the original image, the transformed image and the target image has to be shown
+
+
+My aim:
+I have to detetct fire from the satellite image. The satellite images I got are from ladsat 8 satellite.I have used 7,6,2 bands. The bands 7,6 contain most information about the fire since those bands cover SWIR 2 and SWIR 1. The neural network which is being deigned should make use of this information such that the filters being used cam highlight the fire and reduce other type of content.
+
+
+
+
+
+Can you give me the complete code which also includes reading the training and test images. Also prints accuracy at the end
+
+
+
+
+
+=================================================================================================================================================
+
+I have tiff files in a folder I need them to be in grayscale. So give the code for converting the images into such format.The new images should have the same names. A sample code might look like this. 
+def get_mask_arr(path):
+    img = rasterio.open(path).read().transpose((1, 2, 0))
+    seg = np.float32(img)
+    return seg
+
+
+I have images in png format in one folder  and the target images in another folder can you generate code for training and testing using the above network
+
+
+
+I have png files in one folder. It is the main folder. The images are in png format. The target folder has images also in png. All the images mentioned are of the dimensions 128 by 128.
+The png images are actually obtained from tiff image files which are obtained from landsat 8 satellite . I need a neural netowrk which trains on the given images. All the images are in png format
+I need code with following characteristics. The filenames of the images in original and target are different so do not generate any filenames. The reading can be done sequentially
+1. The folders for orginal images and the target images are in different folders.
+2. The input imges are of 128 by 128 with 3 bands. So the neural network input should be in the sameway
+3. The output images are also 128 by 128 but but grayscale.
+4. I need code for training and testing. It should print accuracy at the end
+
+
+
+
+
+
+
+
+
+
+

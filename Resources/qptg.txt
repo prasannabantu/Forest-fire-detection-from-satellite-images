@@ -1,0 +1,27 @@
+Q:
+
+I want to detect forest fires from Satellite Images. The dataset I chose is the dataset obtained from Landsat 8. The datasest description is like this:
+
+This dataset was created from all Landsat-8 images from South America in the year 2018. More than 31 thousand images were processed (15 TB of data), and approximately on half of them active fire pixels were found. The Landsat-8 sensor has 30 meters of spatial resolution (1 panchromatic band of 15m), 16 bits of radiometric resolution and 16 days of temporal resolution (revisit). The images in our dataset are in TIFF (geotiff) format with 10 bands (excluding the 15m panchromatic band). We cropped the original Landsat-8 scenes into image patches with 128 x 128 pixels by using a stride overlap of 64 pixels (vertical and horizontal). The masks are in binary format where True (1) represents fire and False (0) represents background and they were generated from the conditions set by Schroeder et al. (2016). 
+
+I want to choose certain bands for detecting forest fires. Considering what bands in my code is better and can you eloborate the reasons
+
+
+
+Libraries I am using in python : rasterio
+
+For the same dataset I have images with the same file name but in different folders. I want to display the actual image and the mask image side by side.
+
+
+
+I need a python function 
+
+
+
+
+The images are obtained from landsat 8. The image resolution is 128 by 128
+I have already mapped 7,6,2 bands to green, blue, red colours. 
+
+The problem that I am facing right now is that the number of fire pixels in 128 by 128 image is really less. They are just like 20 to 50 pixels in the whole image. Can you give me the code for the neural network for training and testing but just keep in mind that fire pixels are less. Use appropriate metric for evaluation
+
+
